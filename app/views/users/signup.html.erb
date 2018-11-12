@@ -1,0 +1,40 @@
+<p> hello <%= current_user.email %>  </p>
+
+<p>you are signed in</p>
+
+<% if current_user.admin? %>
+       <p>You are an admin</p>
+       <p>users present<p>
+       <% @users.each do |user| %>
+            <%if current_user !=user && @users != nil%>
+                <li> 
+                    <%=user.email%>
+                    <% if !user.admin? %>
+                        <p>Role:user</p>
+                      <!--  <button onclick="delete()">delete</button> -->
+                        <%= button_to 'Delete', user, method: :delete %>
+                       
+                        <%= button_to 'Make Admin', make_admin_user_path(user), method: :put %>
+                    <%else%> 
+                        <p>Role:admin</p>
+                    <%end%>
+                </li>
+           <% end %>
+      <% end %>
+
+      
+    
+       <% if @users == nil %>
+           <p>no users present</p>
+       <% end %>
+
+<% else %>
+
+<%= button_to 'Make Post', new_post_url, method: :get %>
+
+<p>hesdfjskfjksjf<p>
+
+<% end %>
+
+
+

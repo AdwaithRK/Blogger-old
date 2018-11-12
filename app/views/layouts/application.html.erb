@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<ul class="hmenu">
+  <%= render 'users/menu/registration_items' %>
+  <%= render 'users/menu/login_items' %>
+</ul>
+<%= yield %>
+
+<% if current_user.present?%>
+   <%= button_to 'Show all feed', feed_show_url, method: :get %>
+   <%= button_to 'My works',posts_url, method: :get%>
+<%end%>
+
+
+</html>

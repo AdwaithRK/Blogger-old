@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+   Title  :<%= post.title %> <br>
+   Content :<%= post.content %><br>
+   <td> author:<%= post.user.email %> </td><br>
+   likes:<%= post.likes %> 
+   <%= button_to 'Like', edit_post_path(post), method: :get %>
+   <div id="buttons-feed-for-<%= post.id %>">
+      <button id="button-for-<%= post.id %>" type="button" onClick="renderForm(<%=post.id%>)" >Comment</button>
+      <button id="button-comment-for-<%= post.id%>" type="button" onClick="getComments(<%=post.id%>)">Show Comments</button>
+   </div>
+     <br>--------------------------------------------<br>
+  </div>
+<% end %>
+
+
+<%= button_to 'Go to profile', '/signup', method: :get %>
+ 

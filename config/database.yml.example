@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  database: cool_you
+  username: cool_world
+  password: abc
+  encoding: unicode
+  host: localhost
+  pool: 5
+test:
+  adapter: postgresql
+  database: cool_yuou
+  username: cool_world
+  password: abc
+  encoding: unicode
+  host: localhost
+  pool: 5
